@@ -7,7 +7,7 @@ def generate_password():
     pass_length = int(input("Specify a length for your password :\n" ))
     print(f"Generating password for {pass_length} characters")
 
-    password_list=[]
+    password_list=""
     Characters = Alphabets+Symbols+Numbers
     for char in range(0,pass_length):
         password_list += random.choice(Characters)
