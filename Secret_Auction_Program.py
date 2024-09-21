@@ -16,4 +16,4 @@ while continue_bidding:
         continue_bidding=False
         Highest_bidder(Bid_Sequence)
     elif Continuation=="yes":
-        print("\n"*30)
+        print("\n"*50)
