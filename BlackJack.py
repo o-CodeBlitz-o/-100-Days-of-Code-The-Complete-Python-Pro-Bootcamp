@@ -15,22 +15,29 @@ def Calculate_Score(Cards):
 
 User_Cards = []
 Computer_Cards = []
+User_Score = -1
+Computer_Score = -1
 Is_Game_Over = False
 
 for Num in range(2):
     User_Cards.append(Deal_Card())
     Computer_Cards.append(Deal_Card())
+while not Is_Game_Over :    
+    User_Score = Calculate_Score(User_Cards)
+    Computer_Score = Calculate_Score(Computer_Cards)
+    print(f" Your Cards : {User_Cards} , Current Score = {User_Score}")
+    print(f"Computer's First Cards : {Computer_Cards[0]}")
     
-User_Score = Calculate_Score(User_Cards)
-Computer_Score = Calculate_Score(Computer_Cards)
-print(f" Your Cards : {User_Cards} , Current Score = {User_Score}")
-print(f"Computer's First Cards : {Computer_Cards[0]}")
-
-if User_Score == 0 or Computer_Score == 0 or User_Score > 21:
-    Is_Game_Over = True
-else:
-    User_should_deal = input("Type 'Y' to DRAW ANOTHER card, Type 'N' to PASS").upper()
-    if User_should_deal == 'Y':
-        User_Cards.append(Deal_card())
-    else:
+    if User_Score == 0 or Computer_Score == 0 or User_Score > 21:
         Is_Game_Over = True
+    else:
+        User_should_deal = input("Type 'Y' to DRAW ANOTHER card, Type 'N' to PASS").upper()
+        if User_should_deal == 'Y':
+            User_Cards.append(Deal_card())
+        else:
+            Is_Game_Over = True
+            
+while Computer_Score != 0 and Computer_Score < 17:
+    Computer_Cards.append(Deal_Cards())
+    Computer_Score = Calculate_Score(Computer_Cards)
+    
