@@ -1,10 +1,6 @@
-import random
+from random import randint
 
-Num = []
-for i in range(1,101):
-    Num.append(int(i))
-
-Chosen_Number = random.choice(Num)
+Chosen_Number = randint(1,100)
 HARD_TURN = 5
 EASY_TURN = 10
 
