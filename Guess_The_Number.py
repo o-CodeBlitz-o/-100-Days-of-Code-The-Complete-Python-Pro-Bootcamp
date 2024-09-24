@@ -21,7 +21,7 @@ def Mode():
         return EASY_TURN
     else :
         print("Wrong Input")
-        exit()
+        return Mode()
 
 def Game():
     print("Welcome to the Number Guessing Game :)")
