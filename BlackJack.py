@@ -28,3 +28,9 @@ print(f"Computer's First Cards : {Computer_Cards[0]}")
 
 if User_Score == 0 or Computer_Score == 0 or User_Score > 21:
     Is_Game_Over = True
+else:
+    User_should_deal = input("Type 'Y' to DRAW ANOTHER card, Type 'N' to PASS").upper()
+    if User_should_deal == 'Y':
+        User_Cards.append(Deal_card())
+    else:
+        Is_Game_Over = True
