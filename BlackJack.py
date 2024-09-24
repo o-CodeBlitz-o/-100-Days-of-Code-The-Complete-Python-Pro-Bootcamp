@@ -13,6 +13,22 @@ def Calculate_Score(Cards):
         Cards.append(1)
     return sum(Cards)
 
+def Compare(U_Score,C_Score):
+    if U_Score == C_Score:
+        return "It's a DRAW!!"
+    elif C_Score == 0:
+        return "You LOSE \nOpponent has a BlackJack!!"
+    elif U_Score == 0:
+        return "You WON \nIt's a BlackJack!!"
+    elif U_Score > 21:
+        return "You went over \nYou LOSE"
+    elif C_Score > 21:
+        return "Opponent went over \nYou WON!!"
+    elif U_Score > C_Score:
+        return "You WON!!"
+    else:
+        return "You LOSE"
+
 User_Cards = []
 Computer_Cards = []
 User_Score = -1
@@ -40,4 +56,8 @@ while not Is_Game_Over :
 while Computer_Score != 0 and Computer_Score < 17:
     Computer_Cards.append(Deal_Cards())
     Computer_Score = Calculate_Score(Computer_Cards)
+
+print(f"Your Final hand : {User_Cards}, Final Score : {User_Score}")
+print(f"Opponent's Final hand : {Computer_Cards}, Opponent's Final Score : {Computer_Score}")
+print(Compare(User_Score,Computer_Score))
     
