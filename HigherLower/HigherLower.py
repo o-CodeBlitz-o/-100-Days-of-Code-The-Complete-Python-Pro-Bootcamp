@@ -13,16 +13,31 @@ def Check(User_Guess,Follower_A,Follower_B):
         else :
             return User_Guess == "B"
 
-Account_A = random.choice(data)
+Score = 0
+Continue = True
 Account_B = random.choice(data)
-if Account_A == Account_B:
-    Account_B =  random.choice(data)
 
 Name = input("What is your name?\n")
 print(f"\nHello {Name}!!"+"\nWelcome to Higher Lower Game")
 
-print(f"Compare A against B :\n{Format_Data(Account_A)}\n\nVS\n\n{Format_Data(Account_B)}")
-Guess = input("Which one of these has MORE FOLLOWER COUNT? \n Type A or B : ").upper()
-
-A_Follower_Count = ["follower_count"]
-B_Follower_Count = ["follower_count"]
+while Continue :
+    Account_A = Account_B 
+    Account_B = random.choice(data)
+    if Account_A == Account_B:
+        Account_B =  random.choice(data)
+    
+    print(f"Compare A against B :\n{Format_Data(Account_A)}\n\nVS\n\n{Format_Data(Account_B)}")
+    Guess = input("Which one of these has MORE FOLLOWER COUNT? \n Type A or B : ").upper()
+    # Clear Screen
+    print("\n"*25)
+    
+    A_Follower_Count = ["follower_count"]
+    B_Follower_Count = ["follower_count"]
+    
+    is_correct = Check(Guess,A_Follower_Count,B_Follower_Count)
+    if is_correct:
+        Score += 1
+        print(f"You're Right!\nCurrent Score : {Score}")
+    else :
+        print(f"Sorry,That's a wrong answer :/ \nFinal Score : {Score}")
+        Continue = False    
